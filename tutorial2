@@ -49,12 +49,29 @@ print("\n-------SPACER-------\n")
 print("\n-------END OF Q2-------\n")
 
 #3a, Create dictionary, storing rivers and their countrie
+riverInfo = {
+    "Nile": "Egypt",
+    "Amazon": "Brazil",
+    "Thames": "England"
+}
 
-#3b,
+#3b, Use a loop to print a sentence about each river
+print("Loop to print info sentence")
+for river, country in riverInfo.items():
+    print(f"The {river} runs through {country}")
+print("\n-------SPACER-------\n")
 
-#3c,
+#3c, Use a loop to print the name of each river in the dictionary
+print("Loop to print river names")
+for river in riverInfo.keys():
+    print(river)
+print("\n-------SPACER-------\n")
 
-#3d,
+#3d, Use a loop to print the name of each country
+print("Loop to print countries")
+for country in riverInfo.values():
+    print(country)
+print("\n-------SPACER-------\n")
 
 
 
