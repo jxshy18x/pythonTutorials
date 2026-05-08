@@ -1,0 +1,135 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Tutorial 2 (Solutions)
+
+# Question 1.1
+
+# In[44]:
+
+
+countries=['Italy','France','America','England','Germany']
+
+
+# Question 1.2
+
+# In[45]:
+
+
+for x in countries:
+    print(f'Welcome to {x}')
+
+
+# Question 1.3
+
+# In[46]:
+
+
+countries.sort()
+for x in countries:
+    print(f'Welcome to {x}')
+
+
+# Question 1.4
+
+# In[47]:
+
+
+countries[2:3]=['India','China']
+
+
+# In[48]:
+
+
+countries
+
+
+# Question 2
+
+# In[20]:
+
+
+People={'first_name':'Joe',
+        'last_name':'Bloggs',
+        'age':18,
+        'city':'Brighton'
+        }
+
+print(People['first_name'])
+print(People['last_name'])
+print(People['age'])
+print(People['city'])
+
+
+# Question 3.1
+
+# In[49]:
+
+
+Rivers={'Nile':'Egypt',
+         'Danube':'Hungary',
+       'Amazon':'Brazil',
+       }
+for x,y in Rivers.items():
+    print(f'The {x} runs though {y} ')
+
+
+# Question 3.2
+
+# In[50]:
+
+
+
+for x in Rivers.keys():
+    print(x)
+
+
+# Question 3.2
+
+# In[51]:
+
+
+
+for x in Rivers.values():
+    print(x)
+
+
+# Question 4
+
+# In[41]:
+
+
+('Apple','Banana','Cherry')
+
+
+# Question 4.1
+
+# In[29]:
+
+
+a,b,c = ('Apple','Banana','Cherry')
+
+
+# In[30]:
+
+
+print(a)
+print(b)
+print(c)
+
+
+# Question 4.2
+
+# In[31]:
+
+
+a,*b,c = ('Apple','Banana','Cherry','Strawberry','Mango')
+
+
+# In[32]:
+
+
+print(a)
+print(b)
+print(c)
+
