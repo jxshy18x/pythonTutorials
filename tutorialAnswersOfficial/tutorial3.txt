@@ -1,0 +1,151 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Tutorial 3 (Solutions)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Question 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "graph={'A':['B','C','D'],\n",
+    "       'B':['G','A'],\n",
+    "       'C':['A','F'],\n",
+    "       'D':['A','E','F'],\n",
+    "       'E':['D','F','H'],\n",
+    "       'F':['D','E','C'],\n",
+    "       'G':['B','H'],\n",
+    "       'H':['G','E']}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Question 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "graph1={'E':[('F',3),('G',5),('H',9)],\n",
+    "        'F':[('K',2),('E',3),('L',8)],\n",
+    "        'G':[('E',5),('H',6),('L',1),('K',2)],\n",
+    "        'K':[('G',2),('F',2)],\n",
+    "        'L':[('G',1),('H',10),('F',8)],\n",
+    "        'H':[('E',9),('G',6),('L',10)]\n",
+    "        \n",
+    "       }"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Question 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A\n",
+      "B\n",
+      "C\n",
+      "D\n",
+      "Goal has been found\n",
+      "['A', 'B', 'C', 'D', 'G']\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def BFS(start_node,goal_node, graph):\n",
+    "    explored = [] \n",
+    "    frontier = []  \n",
+    "    \n",
+    "    frontier.append(start_node)    \n",
+    "\n",
+    "    \n",
+    "    while (len(frontier)!=0):\n",
+    "        \n",
+    "        current_node = frontier.pop(0) \n",
+    "        \n",
+    "        if (current_node==goal_node):\n",
+    "            print(\"Goal has been found\") \n",
+    "            explored.append(goal_node)\n",
+    "            print(explored)\n",
+    "            return True\n",
+    "        children=graph[current_node]\n",
+    "        print(current_node)\n",
+    "        explored.append(current_node)\n",
+    "        \n",
+    "        for x in children:\n",
+    "            if x not in explored and x not in frontier:\n",
+    "                \n",
+    "                frontier.append(x)\n",
+    "\n",
+    "      \n",
+    "BFS('A', 'G',graph)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
