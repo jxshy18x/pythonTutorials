@@ -73,6 +73,23 @@ for country in riverInfo.values():
     print(country)
 print("\n-------SPACER-------\n")
 
+#4a, Make a tuple with three items
+music = ("CD", "Vinyl", "Cassette")
+
+#4b, Unpack items into 3 variables
+compactDisc, vinylRecord, cassetteTap = ("CD", "Vinyl", "Cassette")
+print(compactDisc)
+print(vinylRecord)
+print(cassetteTap)
+print("\n-------SPACER-------\n")
+
+#4c, Include other items in tuple, unpack the first and last item to 2 variables and unpack middle to list
+albums = ("Definitely Maybe", "The Dark Side of the Moon", "Electric Ladyland", "Urban Hymns", "Abbey Road")
+firstAlbum, *middleAlbums, lastAlbum = albums
+print(firstAlbum)
+print(*middleAlbums, sep=", ")
+print(lastAlbum)
 
 
+print("END OF QUESTION 4")
 
