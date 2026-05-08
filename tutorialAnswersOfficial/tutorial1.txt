@@ -1,0 +1,111 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Tutorial 1 (Solutions)
+
+# Question 1
+
+# In[ ]:
+
+
+print('Hello World')
+
+
+# Question 2
+
+# In[1]:
+
+
+name='Joe'
+surname='Bloggs'
+course='Computer Science'
+
+
+# Question 3
+
+# In[2]:
+
+
+for x in range(0,6):
+    print('My name is '+name+' '+surname+''+' and I am studying '+course)
+
+
+# Question 4
+
+# In[11]:
+
+
+x=0
+while (x<6):
+    print('My name is '+name+' '+surname+''+' and I am studying '+course)
+    x=x+1
+
+
+# Question 5
+
+# In[24]:
+
+
+x=input('Enter a number')
+
+def WeekDay(x):
+    x=int(x)
+    if x==1:
+        print('Monday')
+    elif x==2:
+        print('Tuesday')
+    elif x==3:
+        print('Wednesday')
+    elif x==4:
+        print('Thursday')
+    elif x==5:
+        print('Friday')
+    elif x==6:
+        print('Saturday')
+    elif x==7:
+        print('Sunday')
+    else:
+        print('Invalid')
+    
+WeekDay(x)
+
+
+# Question 6
+
+# In[29]:
+
+
+def chunk(x):
+    print(x[:3])
+    print(x[3:])
+
+chunk("Artificial Intelligence")
+    
+
+    
+    
+
+
+# Question 7
+
+# In[30]:
+
+
+def funct1(*args): #several arguments are passed in
+    result=0
+    for x in args:
+        result = x + result
+    return result
+
+
+# In[31]:
+
+
+funct1(1,13,4,5) # function call with 4 parameters
+
+
+# In[20]:
+
+
+funct1(1,13,4,5,7,8) # function call with 6 parameters
+
