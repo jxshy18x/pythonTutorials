@@ -15,8 +15,8 @@ course = "Computer Science with Cyber-security"
 for x in range(0,6):
     print("This is the FOR loop")
     print("My name is " + name + " " + surname + " and I am studying " + course)
-    print("-------------------")
-
+    print("                 ")
+print("\n-------SPACER-------\n")
 #4, Write a while loop using variables in #2 printing a sentence
 
 counter1 = 0
@@ -24,7 +24,8 @@ while counter1 < 6:
     print("This is the WHILE loop")
     print("My name is " + name + " " + surname + " and I am studying " + course)
     counter1 = counter1 + 1
-    print("-------------------")
+    print("                 ")
+print("\n-------SPACER-------\n")
     
 #5, Create a function called WeekDay which asks for a number and converts it to a weekday
 
@@ -50,7 +51,7 @@ def weekDay(dayInput):
         print("Not accepted")
 
 weekDay(dayInput)
-
+print("\n-------SPACER-------\n")
 
 #6, Slice the phrase "Artificial Intelligence", print into two chunks
 
@@ -59,6 +60,7 @@ def chunk(x):
     print(x[3:])
 
 chunk("Artificial Intelligence")
+print("\n-------SPACER-------\n")
 
 
 #7, Create a function that takes in any number of integers and returns sum
