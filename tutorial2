@@ -48,7 +48,7 @@ print(userInfo["userCity"])
 print("\n-------SPACER-------\n")
 print("\n-------END OF Q2-------\n")
 
-#3, Create dictionary, storing
+#3, Create dictionary, storing rivers and their countries
 
 
 
