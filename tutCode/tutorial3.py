@@ -17,3 +17,26 @@ graph2 = {
     "K": {"F": 2, "G": 2},
     "L": {"F": 8, "G": 1, "H": 10}
 }
+
+def breadthFirst(startNode, goalNode, graph1):
+    frontier = []
+    explored = []
+    frontier.append(startNode)
+
+    while (len(frontier)!= 0):
+        currentNode = frontier.pop(0)
+
+        if (currentNode == goalNode):
+            print("Goal has been found")
+            explored.append(goalNode)
+            print(explored)
+            return True
+        children = graph1[currentNode]
+        print(currentNode)
+        explored.append(currentNode)
+
+        for x in children:
+            if x not in explored and x not in frontier:
+                frontier.append(x)
+
+breadthFirst("A", "G", graph1)
