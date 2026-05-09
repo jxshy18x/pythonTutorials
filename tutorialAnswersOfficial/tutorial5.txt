@@ -1,0 +1,218 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Tutorial 6 (SOLUTIONS)
+
+# In[110]:
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import tree
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import metrics
+from sklearn.model_selection import cross_val_score,KFold
+
+
+# Question 1
+
+# In[111]:
+
+
+data= pd.read_csv('Iris.csv')
+
+
+# Question 2
+
+# In[112]:
+
+
+data.head()
+
+
+# Question 3
+
+# In[113]:
+
+
+#convert the string values to number
+d={'Iris-setosa':0,'Iris-versicolor':1,'Iris-virginica':2}
+data['species']=data['species'].map(d)
+
+
+# In[114]:
+
+
+data.head()
+
+
+# In[115]:
+
+
+y = data['species']
+X = data.drop(['species'], axis=1)
+
+
+# Question 4
+
+# In[116]:
+
+
+x_train,x_test,y_train,y_test =train_test_split(X,y,test_size=0.20)
+
+
+# Question 5
+
+# In[117]:
+
+
+dt=DecisionTreeClassifier()
+
+dt.fit(x_train,y_train)
+
+
+# Question 6
+
+# In[118]:
+
+
+y_pred = dt.predict(x_test)
+
+
+# In[119]:
+
+
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+# Question 7
+
+# In[120]:
+
+
+y_pred = dt.predict(x_train)
+print("Accuracy:",metrics.accuracy_score(y_train, y_pred))
+
+
+# The accuracy using the training data is higher becuase this is the data used to train the algorithm. So it is overfitting the data.
+
+# Question 8
+
+# In[121]:
+
+
+fig, axes = plt.subplots(nrows = 1,ncols = 1,figsize =(4,3), dpi=300)
+tree.plot_tree(dt,feature_names = ['sepal_length','sepal_width','petal_length','petal_width'],
+class_names=['0','1','2'],filled = True)
+fig.savefig('imagename.png')
+
+
+# Question 9
+
+# In[122]:
+
+
+dt1=DecisionTreeClassifier(criterion='entropy',max_depth=3, min_samples_split=6, min_samples_leaf=6)
+
+
+# In[123]:
+
+
+dt1.fit(x_train,y_train)
+
+
+# In[124]:
+
+
+y_pred = dt1.predict(x_test)
+
+
+# In[125]:
+
+
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+# Question 10
+
+# In[126]:
+
+
+#max_depth=1
+dt11=DecisionTreeClassifier(criterion='entropy',max_depth=1)
+dt11.fit(x_train,y_train)
+y_pred = dt11.predict(x_test)
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+# In[127]:
+
+
+#max_depth=2
+dt12=DecisionTreeClassifier(criterion='entropy',max_depth=2)
+dt12.fit(x_train,y_train)
+y_pred = dt12.predict(x_test)
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+# In[128]:
+
+
+#max_depth=3
+dt13=DecisionTreeClassifier(criterion='entropy',max_depth=3)
+dt13.fit(x_train,y_train)
+y_pred = dt13.predict(x_test)
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+# In[129]:
+
+
+#max_depth=4
+dt14=DecisionTreeClassifier(criterion='entropy',max_depth=4)
+dt14.fit(x_train,y_train)
+y_pred = dt14.predict(x_test)
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+# In[130]:
+
+
+#max_depth=5
+dt15=DecisionTreeClassifier(criterion='entropy',max_depth=5)
+dt15.fit(x_train,y_train)
+y_pred = dt15.predict(x_test)
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+# The other parameters used to optimize the Decision Tree is classifier are: min_samples_split and min_samples_leaf. Example shown below
+
+# In[138]:
+
+
+dt14=DecisionTreeClassifier(criterion='entropy',max_depth=4, min_samples_split=5,min_samples_leaf = 5,)
+dt14.fit(x_train,y_train)
+y_pred = dt14.predict(x_test)
+print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
+
+# Question 11
+# 
+
+# In[137]:
+
+
+kf=KFold(n_splits=5)
+
+score=cross_val_score(dt,X,y,cv=kf)
+
+print(score.mean())
+
+
+# In[ ]:
+
+
+
+
